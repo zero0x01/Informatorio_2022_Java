@@ -1,37 +1,52 @@
 package Complementary_Exercises_lvl2;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Exercise2 {
     public static void main(String[] args) {
-        Scanner leer = new Scanner(System.in);
-        ArrayList<Integer> lista = new ArrayList<Integer>();
-        int num1;
-        int num2;
-        int num3;
-        
-        while (lista.size() < 5 ) {
-            System.out.println("Agregar el numero hasta cumplir los 5 lugares: ");
-            num1 = leer.nextInt();
-            lista.add(num1);
+        Scanner input = new Scanner(System.in);
+
+        ArrayList<Integer> arrayListNumEnteros = new ArrayList<Integer>();        
+
+        System.out.println("Ingresa una lista de 5 numeros: ");
+        for(int i=1; i<=5; i++){
+            arrayListNumEnteros.add(input.nextInt());
         }
         
-        for (int i : lista) {
-            System.out.println("el número ingresado es: " + i);
-        }
-        System.out.println("el tamaño de la lista es: " + lista.size());
+        ArrayList<Integer> CopiaListaOriginaria = new ArrayList<>(arrayListNumEnteros);
 
-        System.out.println("listo! ahora ingresa un número para agregarlo al principio: ");
-        num2 = leer.nextInt();
+        System.out.println("Ingresa 1 numero al principio de la lista: ");
 
-        System.out.println("y un número al final");
-        num3 = leer.nextInt();
-        leer.close();
+        arrayListNumEnteros.add(0, input.nextInt());
+        System.out.println("Ingresa 1 numero al final de la lista: ");
+        arrayListNumEnteros.add(6, input.nextInt());       
         
-        lista.add(0, num2);
-        lista.add(5, num3);
-        System.out.println("La lista con numeros agregados al principio y al final es: " + lista);
-        System.out.println("Ahora el tamaño es: " + lista.size());
-            
+        input.close();
+        
+        System.out.println("\nA continuacion se muestran los elementos de la lista originaria: ");
+
+        for(int i = 0; i<5; i++){
+            if(i!=4){
+                System.out.print(CopiaListaOriginaria.get(i) + " - ");
+            }
+            else{
+                System.out.print(CopiaListaOriginaria.get(i));
+            }
+        }
+
+        System.out.println("\nCantidad de numeros en la lista originaria es: " + CopiaListaOriginaria.size());
+
+        System.out.println("\nA continuacion se muestran los elementos de la lista a la cual se agregaron un numero adelante y al final: ");
+
+        for(int i = 0; i<7; i++){
+            if(i!= 6){
+                System.out.print(arrayListNumEnteros.get(i)+ " - ");
+            }
+            else{
+                System.out.print(arrayListNumEnteros.get(i));
+            }
+        }    
+        System.out.println("\nCantidad de numeros en la lista modificada es: " + arrayListNumEnteros.size());
     }
     
 }

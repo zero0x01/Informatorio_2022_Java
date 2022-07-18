@@ -1,27 +1,18 @@
 package Complementary_Exercises_lvl2;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Exercise4 {
     public static void main(String[] args) {
-        Scanner leer = new Scanner(System.in);
-        ArrayList<String> lista = new ArrayList<String>();
-        String nombres;
-        int flag = 1;
+        List<String> Alumnos = new ArrayList<String>(Arrays.asList("andres", "roberto", "carlos", "johana", "simon", "juana", "maria", "pedro", "rogelio", "mirtha", "david", "sebastian"));
+        
+        List<String> curso1 = Alumnos.subList(0, 4);
+        List<String> curso2 = Alumnos.subList(4, 8);
+        List<String> curso3 = Alumnos.subList(8, 12);
 
-        while (lista.size() < 12 ) {
-            System.out.println("Escribir el nombre del alumno numero " + flag);
-            nombres = leer.nextLine();
-            lista.add(nombres);
-            flag++;
-        }
-        leer.close();
-
-        List<String> clase1 = lista.subList(0, 4);
-        List<String> clase2 = lista.subList(4, 8);
-        List<String> clase3 = lista.subList(8, 12);
-
-        System.out.println("La clase uno la integran: " + clase1 + "\nLa clase dos esta integrada por: " + clase2  + "\nY la clase tres esta integrada por: " + clase3);
-
+        System.out.println("curso 1: " + curso1);
+        System.out.println("curso 2: " + curso2);
+        System.out.println("curso 3: " + curso3);    
     }
-    
 }

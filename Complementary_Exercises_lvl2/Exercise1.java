@@ -1,24 +1,28 @@
 package Complementary_Exercises_lvl2;
-import java.util.*;
+
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Exercise1 {
     public static void main(String[] args) {
-        Scanner leer = new Scanner(System.in);
-        ArrayList<String> lista = new ArrayList<String>();
-        String ciudades;
+        Scanner sc = new Scanner(System.in);
+        String listaCiudad[] = new String[3];
 
-        while (lista.size() < 5 ) {
-            System.out.println("Agregar tu ciudad: ");
-            ciudades = leer.nextLine();
-            lista.add(ciudades);
-        }
+        System.out.println("Ingrese su TOP#3 de Ciudades Favoritas");
+        System.out.print("Ciudad #1: ");
+        listaCiudad[0] = sc.nextLine();
+        System.out.print("Ciudad #2: ");
+        listaCiudad[1] = sc.nextLine();
+        System.out.print("Ciudad #3: ");
+        listaCiudad[2] = sc.nextLine();
 
-        leer.close();
+        System.out.println("----------------");
+        System.out.println("Sus ciudades son");
+        System.out.println("----------------");
 
-        for (int i = 0; i < lista.size(); i++){
-            System.out.println("#" + i + " " + lista.get(i));
-        }
-        
+        System.out.println("#1 - " + listaCiudad[0]);
+        System.out.println("#2 - " + listaCiudad[1]);
+        System.out.println("#3 - " + listaCiudad[2]);        
     }
 
 }

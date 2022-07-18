@@ -1,47 +1,38 @@
 package Complementary_Exercises_lvl2;
-import java.util.*;
-import java.util.HashMap;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class Exercise6 {
-    
-    
-    String nombreYApellido;
-    int DNI;
-    int horasTrabajadas;  
-    static int valorPorHoras;
-    static int Salario;
-    static Map<Integer, Integer> DNISalario = new HashMap<>() ;
-    
-    
-    Exercise6(String nombreYApellido, int DNI, int horastrabajadas, int valorPorHoras){
-        this.nombreYApellido = nombreYApellido;
-        this.DNI = DNI;  
-        this.horasTrabajadas = horastrabajadas;
-        Exercise6.valorPorHoras = valorPorHoras;
-    }
     public static void main(String[] args) {
-        
-        Exercise6 personal1 = new Exercise6("Ginés García", 43345543, 30, 23000);
-        Exercise6 personal2 = new Exercise6("Carla Vizzotti", 45098890, 20, 15000);
-        Exercise6 personal3 = new Exercise6("Santiago Cafiero", 38093345, 28, 20000 );
-        Exercise6 personal4 = new Exercise6("Victoria Donda", 36342213, 20, 16000 );
-        
-
-
-        HashSet<Exercise6> personal = new HashSet<Exercise6>();
-        personal.add(personal1);
-        personal.add(personal2);
-        personal.add(personal3);
-        personal.add(personal4);
-        
-        for(Exercise6 i : personal){ 
-        Integer DNI = i.DNI;
-        Integer Salario = i.horasTrabajadas*valorPorHoras;
-        DNISalario.put(DNI, Salario);
+        Set<Empleado> empleadoSet = new HashSet<>();
+        Map<Integer, Float> sueldo = new HashMap<>();
+        empleadoSet.add(new Empleado("Lady Gaga", 45900333, 8, 120));
+        empleadoSet.add(new Empleado("Harry Styles", 50697523, 10, 95));
+        empleadoSet.add(new Empleado("Gene Simmons", 20144666, 9, 125));
+        for (Empleado registro : empleadoSet) {
+            System.out.println("Empleado: " + registro.nombre + " DNI: " + registro.dni);
         }
-    System.out.println(DNISalario);
-        
-    }  
-
+        for (Empleado tabla : empleadoSet) {
+            sueldo.put(tabla.clave(), tabla.valor());
+        }
+        sueldo.forEach((dni, j) ->System.out.println("|-- Sueldo -- Empleado --" + "| DNI: "+dni+" - Sueldo U$: "+j));
+    }
+}
+class Empleado { String nombre; Integer dni; Float horasTrabajadas; Float valorHora;
+   
+public Empleado(String nombre, Integer dni, int i, int j) {
+    this.nombre = nombre;
+    this.dni = dni;
+    this.horasTrabajadas = (float) i; 
+    this.valorHora = (float) j;
+}
+public int clave() {
+    return this.dni;
+}
+public float valor() {
+    return this.horasTrabajadas*this.valorHora;
+}
 }

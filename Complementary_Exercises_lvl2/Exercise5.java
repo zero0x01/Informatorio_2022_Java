@@ -1,43 +1,23 @@
 package Complementary_Exercises_lvl2;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Exercise5 {
-
     public static void main(String[] args) {
-        Scanner leer = new Scanner(System.in);
-        ArrayList<Integer> lista1 = new ArrayList<Integer>();
-        ArrayList<Integer> lista2 = new ArrayList<Integer>();
-        ArrayList<Integer> listaresultado = new ArrayList<Integer>();
-        
-        int honorarios;
-        int horas;
-        int flag = 1;
-        int flag1 = 0;
-        int total = 0;
-        
-        while (lista1.size() < 5 & lista2.size() < 5) {
-            System.out.println("ingrese la carga horaria del dia " + flag);
-            horas = leer.nextInt();
-            lista1.add(horas);
-        
-            System.out.println("ingrese los honorarios del dia " + flag);
-            honorarios = leer.nextInt();
-            lista2.add(honorarios);
-            flag++;
-        }
-        leer.close();
-        while(flag1 < lista1.size()){ 
-            Integer primero = lista1.get(flag1);
-            Integer segundo = lista2.get(flag1);
-            int calculo = primero * segundo;
-            listaresultado.add(calculo);
-            flag1++;
-            }
-        for (int i : listaresultado){
-            total = total + i;
-        }
-        System.out.println("El precio por dia es: "+ listaresultado + "\nEl precio total es: " + total);
-    }
+      List<Integer> horas_trabajadas = new ArrayList<>(Arrays.asList(6, 7, 8, 4, 5));
+      List<Integer> valor_por_hora = new ArrayList<>(Arrays.asList(350, 345, 550, 600, 320));
 
+      List<Integer> total_por_dia = new ArrayList<>();
     
+      int total_por_semana = 0;
+      for(int i = 0; i<5; i++){
+          total_por_dia.add(i, (horas_trabajadas.get(i) * valor_por_hora.get(i)));
+          total_por_semana += total_por_dia.get(i);
+      }
+        System.out.println(total_por_dia);
+        
+        System.out.println("Total final:  $" + total_por_semana);   
+    }    
 }
